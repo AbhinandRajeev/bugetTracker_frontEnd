@@ -1,74 +1,69 @@
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 
 function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        elevation={0}
-        sx={{
-          background: "linear-gradient(90deg, #0a0033 40%, #35046a 100%)",
-          borderBottom: "2px solid #AF52DE",
-          boxShadow: "0 2px 24px 0 rgba(175,82,222,0.20)"
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{
-              mr: 2,
-              color: "#AF52DE",
-              '&:hover': { color: "#fff", background: "rgba(175,82,222,0.14)" }
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h5"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              fontWeight: 800,
-              letterSpacing: 2,
-              color: "#fff",
-              textTransform: "uppercase",
-              textShadow: "0 2px 18px #af52de77"
-            }}
-          >
-            BUDGET TRACKER
-          </Typography>
-          <Tooltip title="Expense Tracker: manage your spending with ease.">
-            <Button
+    <AppBar
+      position="sticky"
+      elevation={0}
+      sx={{
+        background: "#05001a",
+        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        backdropFilter: "blur(10px)",
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters sx={{ minHeight: "64px", justifyContent: "space-between" }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <AccountBalanceWalletIcon 
+              sx={{ 
+                color: "#AF52DE", 
+                fontSize: 28, 
+                mr: 1.5, 
+              }} 
+            />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="#"
               sx={{
+                fontWeight: 700,
+                letterSpacing: 0.5,
                 color: "#fff",
-                fontWeight: 600,
-                letterSpacing: 1,
-                border: "1.4px solid #AF52DE",
-                borderRadius: "22px",
-                px: 3,
-                py: 1,
-                ml: 2,
-                background: "rgba(175,82,222,0.10)",
-                boxShadow: "0 1px 12px 0 #AF52DE44",
-                
+                textDecoration: "none",
               }}
             >
-              About Us
-            </Button>
-          </Tooltip>
+              BudgetTracker
+            </Typography>
+          </Box>
+
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 1, sm: 2 } }}>
+            <Tooltip title="Learn more about Budget Tracker">
+              <Button
+                sx={{
+                  color: "rgba(255,255,255,0.7)",
+                  textTransform: 'none',
+                  fontWeight: 500,
+                  fontSize: '0.95rem',
+                  display: { xs: 'none', sm: 'block' },
+                  '&:hover': { color: "#fff", background: "rgba(255,255,255,0.05)" }
+                }}
+              >
+                About
+              </Button>
+            </Tooltip>
+          </Box>
         </Toolbar>
-      </AppBar>
-    </Box>
+      </Container>
+    </AppBar>
   );
 }
 
